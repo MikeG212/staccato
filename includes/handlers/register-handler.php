@@ -28,6 +28,8 @@ if(isset($_POST['signUpButton'])) {
     $password = sanitizeFormPassword($_POST[password]);    
     $password2 = sanitizeFormPassword($_POST[password2]);
 
+    $account-> register($userName, $firstName, $lastName, $email, $email2, $password, $password2);
+
 }
 
 ?>
