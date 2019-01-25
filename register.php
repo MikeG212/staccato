@@ -1,3 +1,15 @@
+<?php
+
+if(isset($_POST['loginButton'])) {
+    echo "login button was pressed";
+}
+
+if(isset($_POST['signUpButton'])) {
+    echo "sign up button was pressed";
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
