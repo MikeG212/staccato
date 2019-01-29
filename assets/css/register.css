@@ -1,0 +1,9 @@
+#background {
+    background-color: green;
+    background-image: url(../images/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
