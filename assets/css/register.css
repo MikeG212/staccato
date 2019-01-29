@@ -31,6 +31,28 @@ body {
     max-width: 1024px;
 }
 
+::-webkit-input-placeholder {
+    color:    #fff;
+}
+:-moz-placeholder {
+   color:    #fff;
+   opacity:  1;
+}
+::-moz-placeholder {
+   color:    #fff;
+   opacity:  1;
+}
+:-ms-input-placeholder {
+   color:    #fff;
+}
+::-ms-input-placeholder {
+   color:    #fff;
+}
+
+::placeholder {
+   color:    #fff;
+}
+
 #inputContainer {
     width: 400px;
     padding: 45px;
@@ -52,4 +74,27 @@ body {
     height: 27px;
     line-height: 27px;
     width: 100%;
+}
+
+#inputContainer label {
+    color: #a0a0a0;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+#inputContainer button {
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 250px;
+    color: #FFF;
+    display: block;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 20px auto;
+    height: 41px;
+    width: 100%;
+}
+
+#inputContainer button:hover {
+    cursor: pointer;
 }
