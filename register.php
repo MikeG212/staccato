@@ -25,6 +25,7 @@
     <div id="inputContainer">
         <form id="loginForm" action="register.php" method="POST">
             <h2>Login to your account<h2>
+            <?php echo $account->getError(Constants::$loginFailed); ?>
            <p>
                 <label for="loginUsername">Username</label>
            <input id="loginUsername" name="loginUsername" type="text" placeholder="e.g. HomerSimpson" required>

@@ -9,6 +9,19 @@
             $this->con = $con;
         }
 
+        public function login($un, $pw) {
+            $pw = md5($pw);
+            echo $pw;
+            $query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$un' AND passwordDigest='$pw'");
+
+            if (mysqli_num_rows($query) == 1) {
+                return true;
+            } else {
+                array_push($this->errorArray, Constants::$loginFailed);
+                return false;
+            }
+        }
+
         public function register($un, $fn, $ln,  $em, $em2, $pw, $pw2) {
             $this->validateUsername($un);
             $this->validateFirstName($fn);
@@ -17,7 +30,6 @@
             $this->validatePasswords($pw, $pw2);
 
             if(empty($this->errorArray)) {
-                //TODO: add to database
                 return $this->insertUserDetails($un, $fn, $ln, $em, $pw);
             }
             else {
