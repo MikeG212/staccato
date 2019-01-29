@@ -32,25 +32,25 @@ body {
 }
 
 ::-webkit-input-placeholder {
-    color:    #fff;
+    color:    #FFF;
 }
 :-moz-placeholder {
-   color:    #fff;
+   color:    #FFF;
    opacity:  1;
 }
 ::-moz-placeholder {
-   color:    #fff;
+   color:    #FFF;
    opacity:  1;
 }
 :-ms-input-placeholder {
-   color:    #fff;
+   color:    #FFF;
 }
 ::-ms-input-placeholder {
-   color:    #fff;
+   color:    #FFF;
 }
 
 ::placeholder {
-   color:    #fff;
+   color:    #FFF;
 }
 
 #inputContainer {
@@ -77,14 +77,14 @@ body {
 }
 
 #inputContainer label {
-    color: #a0a0a0;
+    color: #A0A0A0;
     font-size: 13px;
     margin-top: 15px;
 }
 
 #inputContainer button {
     background-color: transparent;
-    border: 2px solid #fff;
+    border: 2px solid #FFF;
     border-radius: 250px;
     color: #FFF;
     display: block;
@@ -97,4 +97,18 @@ body {
 
 #inputContainer button:hover {
     cursor: pointer;
+}
+
+.hasAccountText span {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.hasAccountText {
+    text-align: center;
+}
+
+#registerForm,
+#loginForm {
+    display: none;
 }
