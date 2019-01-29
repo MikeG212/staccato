@@ -1,11 +1,13 @@
 <?php
     include("includes/classes/Account.php");
+    include("includes/classes/Constants.php");
     
     $account = new Account();
-    $account->register();
-
-    include("includes/handlers/login-handler.php");
+    
     include("includes/handlers/register-handler.php");
+    include("includes/handlers/login-handler.php");
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -31,18 +33,23 @@
         <form id="registerForm" action="register.php" method="POST">
             <h2>Create your free account<h2>
            <p>
+           <?php echo $account->getError(Constants::$usernameLength); ?>
                 <label for="signUpUsername">Username</label>
            <input id="signUpUsername" name="signUpUsername" type="text" placeholder="e.g. HomerJSimpson" required>
            </p>
             <p>
+            <?php echo $account->getError(Constants::$firstNameLength); ?>
                 <label for="firstName">First Name</label>
                 <input id="firstName" name="firstName" type="text" placeholder="Homer" required>
            </p>
            <p>
+           <?php echo $account->getError(Constants::$lastNameLength); ?>
                 <label for="lastName">Last Name</label>
                 <input id="lastName" name="lastName" type="text" placeholder="Simpson" required>
            </p>
            <p>
+           <?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
+           <?php echo $account->getError(Constants::$emailInvalid); ?>
                 <label for="email">Email</label>
                 <input id="email" name="email" type="email" placeholder="homer@gmail.com" required>
            </p>
@@ -51,15 +58,18 @@
                 <input id="email2" name="email2" type="email" placeholder="homer@gmail.com" required>
            </p>
            <p>
-                <label for="signUpPassword">Password</label>
-                <input id="signUpPassword" name="signUpPassword" type="password" required> 
+           <?php echo $account->getError(Constants::$passwordsDoNotMatch); ?>
+           <?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?>
+           <?php echo $account->getError(Constants::$passwordLength); ?>
+                <label for="pw">Password</label>
+                <input id="pw" name="pw" type="password" required> 
             </p>
             <p>
-                <label for="signUpPassword2">Confirm Password</label>
-                <input id="signUpPassword2" name="signUpPassword2" type="password" required> 
+                <label for="pw2">Confirm Password</label>
+                <input id="pw2" name="pw2" type="password" required> 
             </p>
 
-            <button type="submit" name="signUpBottom">Sign Up</button>
+            <button type="submit" name="signUpButton">Sign Up</button>
         </form>
     <div>
 </body>
