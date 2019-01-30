@@ -15,10 +15,10 @@
     }
 ?>
 
-<!DOCTYPE html>
 <html>
 <head>
     <title>Welcome to Stacatto!</title>
+
     <link rel="stylesheet" href="assets/css/register.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -32,7 +32,7 @@
             <div id="inputContainer">
 
                 <form id="loginForm" action="register.php" method="POST">
-                    <h2>Login to your account<h2>
+                    <h2>Login to your account</h2>
                     <p>
                         <?php echo $account->getError(Constants::$loginFailed); ?>
                         <label for="loginUsername">Username</label>
@@ -49,7 +49,7 @@
                 </form>
 
                 <form id="registerForm" action="register.php" method="POST">
-                    <h2>Create your free account<h2>
+                    <h2>Create your free account</h2>
                     <p>
                         <?php echo $account->getError(Constants::$usernameLength); ?>
                         <?php echo $account->getError(Constants::$usernameTaken); ?>
@@ -107,7 +107,7 @@
 
         </div>
 
-    <div>
+    </div>
 
 </body>
 </html>
