@@ -80,6 +80,7 @@ body {
     color: #A0A0A0;
     font-size: 13px;
     margin-top: 15px;
+    display: block;
 }
 
 #inputContainer button {
