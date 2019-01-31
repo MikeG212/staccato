@@ -29,6 +29,10 @@ include("includes/config.php");
                     <span class="albumLink">
                         <img class="albumArtwork" src="assets/images/square.png" alt="Album Art">
                     <span>
+                    <div class="trackInfo">
+                        <span class="trackName">Encore</span>
+                        <span class="artistName">Jay-Z</span>
+                    </div>
                 </div>
             </div>
             <div id="nowPlayingCenter">
@@ -72,7 +76,20 @@ include("includes/config.php");
                     </div>
                 </div>
             </div>
-            <div id="nowPlayingRight"></div>
+            <div id="nowPlayingRight">
+                <div class="volumeBar">
+                    <button class="controlButton volume" title="Volume button">
+                        <img src="assets/images/icons/volume.png" alt="Volume"> 
+                           
+                    </button>
+                    
+                    <div class="progressBar">
+                        <div class="progressBarBg">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>

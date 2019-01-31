@@ -4,6 +4,11 @@ html, body {
     height: 100%
 }
 
+* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #FFF;
+}
+
 #nowPlayingBarContainer {
     width: 100%;
     background-color: #282828;
@@ -24,6 +29,11 @@ html, body {
 #nowPlayingRight {
     width: 30%;
     min-width: 180px;
+}
+
+#nowPlayingRight {
+    position: relative;
+    margin-top: 15px;
 }
 
 #nowPlayingCenter {
@@ -105,3 +115,29 @@ html, body {
     float: left;
     background-size: cover;
 }
+
+#nowPlayingLeft .trackInfo {
+    display: table;
+}
+
+#nowPlayingLeft .trackInfo .trackName {
+    margin: 6px 0;
+    display: inline-block;
+    width: 100%;
+}
+
+#nowPlayingLeft .trackInfo .artistName span {
+    font-size: 12px;
+    color: #A0A0A0;
+}
+
+.volumeBar {
+    width: 80px;
+    position: absolute;
+    right: 0;
+}
+
+.volumeBar .progressBar {
+    width: 125px;
+}
+
