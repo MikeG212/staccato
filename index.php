@@ -51,7 +51,14 @@ include("includes/config.php");
 
                         <button class="controlButton repeat" title="Repeat button">
                             <img src="assets/images/icons/repeat.png" alt="Repeat">
-                        </button>
+                        </button> 
+                    </div>
+                    <div class="playbackBar">
+
+                        <span class="progressTime current">0:00</span>
+                        <div class="progressBar"></div>
+                        <span class="progressTime remaining">0:00</span>
+                    
                     </div>
                 </div>
             </div>
