@@ -137,3 +137,9 @@ body {
     list-style-type: none;
     padding: 10px;
 }
+
+#inputContainer .errorMessage {
+    color: #07D159;
+    font-size: 12px;
+    display: block;
+}
