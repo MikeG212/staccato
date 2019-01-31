@@ -24,7 +24,13 @@ include("includes/config.php");
     Staccato
     <div id="nowPlayingBarContainer">
         <div id="nowPlayingBar">
-            <div id="nowPlayingLeft"></div>
+            <div id="nowPlayingLeft">
+                <div class="content">
+                    <span class="albumLink">
+                        <img class="albumArtwork" src="assets/images/square.png" alt="Album Art">
+                    <span>
+                </div>
+            </div>
             <div id="nowPlayingCenter">
                 <div class="content playerControl">
                     <div class="buttons">
@@ -56,7 +62,11 @@ include("includes/config.php");
                     <div class="playbackBar">
 
                         <span class="progressTime current">0:00</span>
-                        <div class="progressBar"></div>
+                        <div class="progressBar">
+                            <div class="progressBarBg">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
                         <span class="progressTime remaining">0:00</span>
                     
                     </div>
