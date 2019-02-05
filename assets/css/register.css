@@ -84,8 +84,8 @@ body {
 }
 
 #inputContainer button {
-    background-color: transparent;
-    border: 2px solid #FFF;
+    background-color: #07D159;
+    border: 2px solid #07D159;
     border-radius: 250px;
     color: #FFF;
     display: block;
@@ -93,7 +93,8 @@ body {
     letter-spacing: 1px;
     margin: 20px auto;
     height: 41px;
-    width: 100%;
+    min-width: 250px;
+    font-weight: 700;
 }
 
 #inputContainer button:hover {
@@ -120,12 +121,12 @@ body {
 }
 
 #loginText h1 {
-    color: #07D159;
+    color: #FFF;
     font-size: 60px;
     font-weight: bold;
 }
 
-#loginText h2 {
+#loginText h4 {
     margin: 35px 0;
 }
 
@@ -139,8 +140,26 @@ body {
     padding: 10px;
 }
 
+#loginText button {
+    background-color: #07D159;
+    border: 2px solid #07D159;
+    border-radius: 250px;
+    color: #FFF;
+    display: block;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 20px auto;
+    height: 41px;
+    min-width: 250px;
+    font-weight: 700;
+}
+
 #inputContainer .errorMessage {
     color: #07D159;
     font-size: 12px;
     display: block;
+}
+
+#mainContent {
+    padding: 0 20px;
 }

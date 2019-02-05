@@ -7,6 +7,13 @@ html, body {
 * {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #FFF;
+    letter-spacing: 1px;
+}
+
+body {
+    background-color: #181818;
+    font-size: 14px;
+    min-width: 720px;
 }
 
 #nowPlayingBarContainer {
@@ -15,7 +22,6 @@ html, body {
     bottom: 0;
     position: fixed;
     min-width: 620px;
-    /* height: 100px;  remove later */
 }
 
 #nowPlayingBar {
@@ -72,11 +78,15 @@ html, body {
     height: 32px;
 }
 
+.controlButton:hover {
+	cursor: pointer;
+}
+
 .progressTime{
     color: #A0A0A0;
     font-size: 11px;
     min-width: 40px;
-    text-align: center:
+    text-align: center;
 }
 
 .playbackBar {
@@ -132,7 +142,7 @@ html, body {
 }
 
 .volumeBar {
-    width: 80px;
+    width: 180px;
     position: absolute;
     right: 0;
 }
@@ -141,3 +151,105 @@ html, body {
     width: 125px;
 }
 
+#topContainer {
+    min-height: 100%;
+    width: 100%;
+}
+
+#navBarContainer {
+    background-color: #000;
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.navBar {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.navBar img {
+    width: 32px;
+}
+
+.navBar .group {
+    border-top: 1px solid #A0A0A0;
+    padding: 10px 0;
+}
+
+.navItem {
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.navItemLink {
+    color: #A0A0A0;
+    text-decoration: none;
+}
+
+.navItemLink:hover {
+    color: #FFFFFF;
+}
+
+.logo {
+    margin-bottom: 15px;
+}
+
+.logo img {
+    width: 32px;
+}
+
+.navItemLink .icon {
+    position: absolute;
+    right: 0;
+    top: 6px;
+    width: 25px;
+    font-weight: 700px;
+}
+
+#mainViewContainer {
+    margin-left: 220px;
+    padding-bottom: 90px;
+    width: calc(100% - 220px);
+}
+
+#mainContent {
+    padding: 0 20px;
+}
+
+.pageHeadingBig {
+    padding: 20px;
+}
+
+.gridViewItem {
+   display: inline-block;
+   margin-right: 20px;
+   width: 29%;
+   max-width: 200px;
+   min-width: 150px;
+   margin-bottom: 20px;
+}
+
+.gridViewItem img {
+    width: 100%;
+}
+
+.gridViewInfo {
+    font-weight: 300;
+    text-align: center;
+    padding: 5px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.gridViewInfo a {
+    text-decoration: none; 
+}

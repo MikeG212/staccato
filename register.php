@@ -57,15 +57,16 @@
                     <p>
                         <?php echo $account->getError(Constants::$loginFailed); ?>
                         <label for="loginUsername">Username</label>
-                        <input id="loginUsername" name="loginUsername" type="text" placeholder="e.g. HomerJSimpson" value="<?php getInputValue('loginUsername') ?>"required>
+                        <input id="loginUsername" name="loginUsername" type="text" placeholder="e.g. HarryPotter" value="<?php getInputValue('loginUsername') ?>"required>
                     </p>
                     <p>
                         <label for="loginPassword">Password</label>
-                        <input id="loginPassword" name="loginPassword" type="password" placeholder="Your password" required> 
+                        <input id="loginPassword" name="loginPassword" type="password" placeholder="Caput Draconis" required> 
                     </p>
                     <button type="submit" name="loginButton">LOG IN</button>
                     <div class="hasAccountText">
-                        <span id=hideLogin>Don't have an account yet? Signup here.</span>
+                        <span id=hideLogin>Don't have an account yet?</span>
+                        <button>SIGN UP FOR STACCATO</button>
                     </div>
                 </form>
 
@@ -75,19 +76,19 @@
                         <?php echo $account->getError(Constants::$usernameLength); ?>
                         <?php echo $account->getError(Constants::$usernameTaken); ?>
                         <label for="signUpUsername">Username</label>
-                        <input id="signUpUsername" name="signUpUsername" type="text" placeholder="e.g. HomerJSimpson" value="<?php getInputValue('signUpUsername') ?>" required>
+                        <input id="signUpUsername" name="signUpUsername" type="text" placeholder="e.g. HarryPotter" value="<?php getInputValue('signUpUsername') ?>" required>
                     </p>
 
                     <p>
                         <?php echo $account->getError(Constants::$firstNameLength); ?>
                         <label for="firstName">First Name</label>
-                        <input id="firstName" name="firstName" type="text" placeholder="Homer" value="<?php getInputValue('firstName') ?>" required>
+                        <input id="firstName" name="firstName" type="text" placeholder="Harry" value="<?php getInputValue('firstName') ?>" required>
                     </p>
                     
                     <p>
                         <?php echo $account->getError(Constants::$lastNameLength); ?>
                         <label for="lastName">Last Name</label>
-                        <input id="lastName" name="lastName" type="text" placeholder="Simpson" value="<?php getInputValue('lastName') ?>" required>
+                        <input id="lastName" name="lastName" type="text" placeholder="Potter" value="<?php getInputValue('lastName') ?>" required>
                     </p>
                 
                     <p>
@@ -95,12 +96,12 @@
                         <?php echo $account->getError(Constants::$emailInvalid); ?>
                         <?php echo $account->getError(Constants::$emailTaken); ?>
                         <label for="email">Email</label>
-                        <input id="email" name="email" type="email" placeholder="e.g. homer@gmail.com" value="<?php getInputValue('email') ?>" required>
+                        <input id="email" name="email" type="email" placeholder="e.g. harry@gmail.com" value="<?php getInputValue('email') ?>" required>
                     </p>
                 
                     <p>
                         <label for="email2">Confirm Email</label>
-                        <input id="email2" name="email2" type="email" placeholder="e.g. homer@gmail.com" value="<?php getInputValue('email2') ?>" required>
+                        <input id="email2" name="email2" type="email" placeholder="e.g. harry@gmail.com" value="<?php getInputValue('email2') ?>" required>
                     </p>
                 
                     <p>
@@ -108,18 +109,18 @@
                         <?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?>
                         <?php echo $account->getError(Constants::$passwordLength); ?>
                         <label for="pw">Password</label>
-                        <input id="pw" name="pw" type="password" placeholder="Your password" required> 
+                        <input id="pw" name="pw" type="password" placeholder="Password" required> 
                     </p>
 
                     <p>
                         <label for="pw2">Confirm Password</label>
-                        <input id="pw2" name="pw2" type="password" placeholder="Your password" required> 
+                        <input id="pw2" name="pw2" type="password" placeholder="Password" required> 
                     </p>
 
-                    <button type="submit" name="signUpButton">Sign Up</button>
+                    <button type="submit" name="signUpButton">SIGN UP</button>
 
                     <div class="hasAccountText">
-                        <span id=hideRegister>Already have an account? Log in here</span>
+                        <span id=hideRegister>Already have an account? Log in</span>
                     </div>
 
                 </form>
@@ -127,14 +128,10 @@
             </div>
 
             <div id="loginText">
-                <h1>Get great music, right now</h1>
-                <h2>Listen to loads of songs for free</h2>
-
-                <ul>
-                    <li>Discover music you'll fall in love with</li>
-                    <li>Create your own playlists</li>
-                    <li>Keep up to date with hot artists</li>
-                </ul>
+                <h1>Music for everyone.</h1>
+                <h4>Millions of songs. No credit card needed.</h4>
+                <button>DEMO LOGIN</button>
+            </div>
 
         </div>
 
