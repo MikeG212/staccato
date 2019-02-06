@@ -16,14 +16,14 @@ include("includes/classes/Song.php");
 
 <html>
 <head>
-
     <title>Welcome to Stacatto</title>
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <!-- <script src=assets/js/script.js></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </head>
 <body>
     <div id="mainContainer">
         <div id="topContainer">
-            <?php include("includes/navBarContainer.php"); ?>
+            <?php include("includes/navBar.php"); ?>
             <div id="mainViewContainer">
                 <div id="mainContent">
