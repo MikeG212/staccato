@@ -33,12 +33,8 @@
             return new Artist($this->con, $this->artistId);
         }
 
-        public function getArtworkPath() {
-            return $album['artworkPath'];
-        }
-
         public function getGenre() {
-            return $album['genre'];
+            return $this-genre;
         }
 
         public function getNumberOfSongs() {
