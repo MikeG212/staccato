@@ -16,11 +16,18 @@ $jsonArray = json_encode($resultArray);
 $(document).ready(function() {
     currentPlaylist = <?php echo $jsonArray; ?>;
     audioElement = new Audio();
-    setTrack(currentPlaylist[0], currentPlaylist, false);
+    audioElement.setTrack("assets/music/Dee_Yan-Key_-_01_-_Driving_Home.mp3");
+    // setTrack(currentPlaylist[0], currentPlaylist, false);
 });
 
 function setTrack(trackId, newPlaylist, play) {
-    audioElement.setTrack("assets/music/Dee_Yan-Key_-_01_-_Driving_Home.mp3")
+    // $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
+    //     let track = JSON.parse(data)
+    //     console.log(track);
+    //     audioElement.setTrack(track.path);
+    //     audioElement.play();
+    // });
+
     if (play) {
         audioElement.play();
     }
