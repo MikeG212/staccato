@@ -19,15 +19,9 @@ include("includes/classes/Song.php");
 
     <title>Welcome to Stacatto</title>
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <script src=assets/js/script.js></script>
+    <!-- <script src=assets/js/script.js></script> -->
 </head>
 <body>
-
-    <script>
-        let audioElement = new Audio();
-        audioElement.setTrack("assets/music/Dee_Yan-Key_-_03_-_The_Flow.mp3")
-        audioElement.audio.play();
-    <script>
     <div id="mainContainer">
         <div id="topContainer">
             <?php include("includes/navBarContainer.php"); ?>

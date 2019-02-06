@@ -4,6 +4,7 @@
         private $con;
         private $id;
         private $mysqliData;
+        private $title;
         private $artistId;
         private $albumId;
         private $genre;
@@ -15,7 +16,7 @@
             $this->id = $id;
 
             $query = mysqli_query($this->con, "SELECT * FROM Songs WHERE id='$this->id'");
-            $this_mysqlidata = mysqli_fetch_array($query);
+            $this->mysqliData = mysqli_fetch_array($query);
 
             $this->title = $this->mysqliData['title'];
             $this->artistId = $this->mysqliData['artist'];
@@ -48,7 +49,5 @@
         public function getPath() {
             return $this->path;
         }
-
-
     }
 ?>
