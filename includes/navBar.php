@@ -15,7 +15,7 @@
 
         <div class="group">
             <div class="navItem">
-                <a href="home.php" class="navItemLink">
+                <a href="index.php" class="navItemLink">
                     <img class="icon" src="assets/images/icons/home.png" alt="search">
                     Home
                 </a>
@@ -25,7 +25,7 @@
         <div class="group">
             <div class="navItem">
                 <a href="home.php" class="navItemLink">
-                    <img class="icon" src="assets/images/icons/library.png" alt="search">
+                    <!-- <img class="icon" src="assets/images/icons/library.png" alt="search"> -->
                     Your Library
                 </a>
             </div> 

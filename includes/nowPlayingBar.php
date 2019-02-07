@@ -1,5 +1,5 @@
 <?php
-$songQuery = mysqli_query($con, "SELECT id FROM Songs ORDER BY RAND() LIMIT 10");
+$songQuery = mysqli_query($con, "SELECT id FROM songs ORDER BY RAND() LIMIT 10");
 
 $resultArray = array();
 
@@ -16,24 +16,69 @@ $jsonArray = json_encode($resultArray);
 $(document).ready(function() {
     currentPlaylist = <?php echo $jsonArray; ?>;
     audioElement = new Audio();
-    audioElement.setTrack("assets/music/Dee_Yan-Key_-_01_-_Driving_Home.mp3");
-    // setTrack(currentPlaylist[0], currentPlaylist, false);
+    setTrack(currentPlaylist[0], currentPlaylist, false);
 });
 
 function setTrack(trackId, newPlaylist, play) {
-    // $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
-    //     let track = JSON.parse(data)
-    //     console.log(track);
-    //     audioElement.setTrack(track.path);
-    //     audioElement.play();
-    // });
+	$.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
+		var track = JSON.parse(data);
+        $(".trackName span").text(track.title);
 
-    if (play) {
-        audioElement.play();
-    }
+        $.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
+			var artist = JSON.parse(data);
+
+			$(".artistName span").text(artist.name);
+		});
+
+        $.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
+            var album = JSON.parse(data);
+		    $(".albumLink img").attr("src", album.artworkPath);
+        });
+
+        audioElement.setTrack(track);
+		playSong();
+
+    });
+		
+	
+
+	if(play == true) {
+		audioElement.play();
+	}
+}
+
+function setTrack(trackId, newPlaylist, play) {
+
+	$.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
+
+		var track = JSON.parse(data);
+        console.log(track);
+		$(".trackName span").text(track.title);
+
+		$.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
+			var artist = JSON.parse(data);
+            console.log(artist);
+			$(".artistName span").text(artist.name);
+		});
+
+        $.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
+			var album = JSON.parse(data);
+			$(".albumLink img").attr("src", album.artworkPath);
+		});
+
+		audioElement.setTrack(track);
+		audioElement.play();
+	});
+
+	if(play == true) {
+		audioElement.play();
+	}
 }
 
 function playSong() {
+    if (audioElement.audio.currentTime == 0) {
+        $.post("includes/handlers/ajax/updatePlays.php", { songId: audioElement.currentlyPlaying.id });
+    }
     $(".controlButton.play").hide();
     $(".controlButton.pause").show();
     audioElement.play();
@@ -52,11 +97,11 @@ function pauseSong() {
         <div id="nowPlayingLeft">
             <div class="content">
                 <span class="albumLink">
-                    <img class="albumArtwork" src="assets/images/square.png" alt="Album Art">
+                    <img class="albumArtwork" alt="Album Art">
                 <span>
                 <div class="trackInfo">
-                    <span class="trackName">Encore</span>
-                    <span class="artistName">Jay-Z</span>
+                    <span class="trackName"></span>
+                    <span class="artistName"></span>
                 </div>
             </div>
         </div>

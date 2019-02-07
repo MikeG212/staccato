@@ -15,7 +15,7 @@
             $this->con = $con;
             $this->id = $id;
 
-            $query = mysqli_query($this->con, "SELECT * FROM Songs WHERE id='$this->id'");
+            $query = mysqli_query($this->con, "SELECT * FROM songs WHERE id='$this->id'");
             $this->mysqliData = mysqli_fetch_array($query);
 
             $this->title = $this->mysqliData['title'];
