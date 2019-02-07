@@ -22,12 +22,12 @@ $(document).ready(function() {
 function setTrack(trackId, newPlaylist, play) {
 	$.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
 		var track = JSON.parse(data);
-        $(".trackName span").text(track.title);
+        $('#trackName span').text(track.title);
 
         $.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
 			var artist = JSON.parse(data);
 
-			$(".artistName span").text(artist.name);
+			$('#artistName span').text(artist.name);
 		});
 
         $.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
@@ -52,13 +52,13 @@ function setTrack(trackId, newPlaylist, play) {
 	$.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
 
 		var track = JSON.parse(data);
-        console.log(track);
-		$(".trackName span").text(track.title);
+        console.log('track:', track.title);
+		$('.trackName').html(track.title);
 
 		$.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
 			var artist = JSON.parse(data);
-            console.log(artist);
-			$(".artistName span").text(artist.name);
+            console.log('artist:', artist.name);
+			$('.artistName').html(artist.name);
 		});
 
         $.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
