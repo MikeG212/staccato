@@ -12,7 +12,7 @@ function openPage(url) {
     if (url.indexOf("?") == -1) {
         url += "?";
     }
-    let encodedURL = encodeURI(`${url}&userLoggedIn=${userLoggedIn}`);
+    var encodedURL = encodeURI(`${url}&userLoggedIn=${userLoggedIn}`);
     $("#mainContent").load(encodedURL);
 }
 
@@ -47,6 +47,10 @@ function Audio() {
     this.currentlyPlaying;
     this.audio = document.createElement('audio');
 
+    this.audio.addEventListener("ended", function () {
+        nextSong();
+    });
+
     this.audio.addEventListener("canplay", function() {
         let duration = formatTime(this.duration);
         $('.progressTime.remaining').text(duration);
@@ -62,10 +66,7 @@ function Audio() {
         updateVolumeProgressBar(this);
     });
 
-    this.audio.addEventListener("ended", function() {
-        nextSong();
-    });
-
+    
     this.setTrack = function(track) {
         this.currentlyPlaying = track;
         this.audio.src = track.path;

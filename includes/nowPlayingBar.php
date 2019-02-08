@@ -18,6 +18,8 @@ $(document).ready(function() {
     audioElement = new Audio();
     setTrack(newPlaylist[0], newPlaylist, false);
     updateVolumeProgressBar(audioElement.audio);
+
+
     $("#nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove", function(e) {
         e.preventDefault();
     });
@@ -93,11 +95,17 @@ function nextSong() {
     }
 
     if (shuffle) {
-        trackToPlay = shuffledPlaylist[currentIndex]
+        trackToPlay = shuffledPlaylist[currentIndex];
     } else {
         trackToPlay = currentPlaylist[currentIndex];
     }
     setTrack(trackToPlay, currentPlaylist, true);
+}
+
+function toggleRepeat() {
+    repeat = !repeat;
+    let imageName = repeat ? "repeat-active.png" : "repeat.png";
+    $(".controlButton.repeat img").attr("src", "assets/images/icons/" + imageName);
 }
 
 function toggleMute() {
@@ -115,7 +123,7 @@ function toggleShuffle() {
         shuffleArray(shuffledPlaylist);
         currentIndex = shuffledPlaylist.indexOf(audioElement.currentlyPlaying.id);
     } else {
-
+        currentIndex = currentPlaylist.indexOf(audioElement.currentlyPlaying.id);
     }
 }
 
@@ -128,6 +136,7 @@ function shuffleArray(a) {
 }
 
 function setTrack(trackId, newPlaylist, play) {
+    debugger
     if(newPlaylist != currentPlaylist) {
         currentPlaylist = newPlaylist.slice();
         shuffledPlaylist = newPlaylist.slice();
@@ -141,14 +150,14 @@ function setTrack(trackId, newPlaylist, play) {
     }
     
     pauseSong();
+
 	$.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {	
         var track = JSON.parse(data);
-        $('.content .trackName').text(track.title);
+        $(".trackName span").text(track.title);
 
         $.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
 			var artist = JSON.parse(data);
-
-			$('.content .artistName').text(artist.name);
+			$(".artistName span").text(artist.name);
 		});
 
         $.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
@@ -158,19 +167,15 @@ function setTrack(trackId, newPlaylist, play) {
 
         audioElement.setTrack(track);
 
+        if(play) {
+		    audioElement.play();
+	    }
+
     });
 		
 	
 
-	if(play == true) {
-		audioElement.play();
-	}
-}
-
-function toggleRepeat() {
-    repeat = !repeat;
-    let imageName = repeat ? "repeat-active.png" : "repeat.png";
-    $(".controlButton.repeat img").attr("src", "assets/images/icons/" + imageName);
+	
 }
 
 function playSong() {
@@ -195,14 +200,19 @@ function pauseSong() {
         <div id="nowPlayingLeft">
             <div class="content">
                 <span class="albumLink">
-                    <img class="albumArtwork" alt="Album Art">
+                    <img src="" class="albumArtwork" alt="Album Art">
                 <span>
                 <div class="trackInfo">
-                    <span class="trackName"></span>
-                    <span class="artistName"></span>
+                    <span class="trackName">
+                        <span></span>
+                    </span>
+                    <span class="artistName">
+                        <span></span>
+                    </span>
                 </div>
             </div>
         </div>
+
         <div id="nowPlayingCenter">
             <div class="content playerControl">
                 <div class="buttons">
@@ -223,12 +233,12 @@ function pauseSong() {
                         <img src="assets/images/icons/pause.png" alt="Pause">
                     </button>
 
-                    <button class="controlButton next" title="Next button">
-                        <img src="assets/images/icons/next.png" alt="Next" onclick="nextSong()">
+                    <button class="controlButton next" title="Next button" onclick="nextSong()">
+                        <img src="assets/images/icons/next.png" alt="Next">
                     </button>
 
-                    <button class="controlButton repeat" title="Repeat button">
-                        <img src="assets/images/icons/repeat.png" alt="Repeat" onclick="toggleRepeat()">
+                    <button class="controlButton repeat" title="Repeat button" onclick="toggleRepeat()">
+                        <img src="assets/images/icons/repeat.png" alt="Repeat">
                     </button> 
                 </div>
                 <div class="playbackBar">
