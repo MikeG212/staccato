@@ -55,8 +55,6 @@
         }
 
         private function validateUsername($un) {
-            // echo "username function called";
-
             if(strlen($un) > 25 || strlen($un) < 5) {
                 array_push($this->errorArray, Constants::$usernameLength);
                 return;

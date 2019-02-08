@@ -1,4 +1,6 @@
-<?php include("includes/header.php"); ?>
+<?php
+include("includes/includedFiles.php");
+?>
 
 <h1 class="pageHeadingBig">You might also like</h1>
 
@@ -19,6 +21,4 @@
 
 </div>
 
-<?php include("includes/footer.php"); ?>
-
-<a href="https://icons8.com/icon/99983/spotify">Spotify icon by Icons8</a>
+<a href="https://icons8.com/icon/12783/music">Music icon by Icons8</a>
