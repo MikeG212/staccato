@@ -168,13 +168,10 @@ function setTrack(trackId, newPlaylist, play) {
         audioElement.setTrack(track);
 
         if(play) {
-		    audioElement.play();
+		    playSong();
 	    }
 
     });
-		
-	
-
 	
 }
 
