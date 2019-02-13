@@ -136,7 +136,6 @@ function shuffleArray(a) {
 }
 
 function setTrack(trackId, newPlaylist, play) {
-    debugger
     if(newPlaylist != currentPlaylist) {
         currentPlaylist = newPlaylist.slice();
         shuffledPlaylist = newPlaylist.slice();

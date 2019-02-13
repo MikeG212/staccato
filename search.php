@@ -39,8 +39,8 @@ $(function() {
         
         $songsQuery = mysqli_query($con, "SELECT id FROM songs WHERE title LIKE '$term%' LIMIT 10");
 
-        if(mysqli_num_rows($songsQuery) == 0); {
-            echo "<span class='noResults'>No songs found matching " . $terms . "</span>";
+        if(mysqli_num_rows($songsQuery) == 0) {
+            echo "<span class='noResults'>No songs found matching " . $term . "</span>";
         }
 
 		$songIdArray = array();
@@ -53,9 +53,9 @@ $(function() {
             }
 
             array_push($songIdArray, $row['id']);
-            albumArtist = $
 
-			$albumSong = new Song($con, $songId);
+
+			$albumSong = new Song($con, $row['id']);
 			$albumArtist = $albumSong->getArtist();
 
 			echo "<li class='tracklistRow'>
@@ -92,4 +92,30 @@ $(function() {
 
  
 	</ul>
+</div>
+
+<div class="artistsContainer borderBottom">
+    <h2>ARTISTS</h2>
+
+    <?php
+    $artistsQuery = mysqli_query($con, "SELECT id FROM artists WHERE name LIKE '$term%' LIMIT 10");
+    
+    if (mysqli_num_rows($artistsQuery) == 0) {
+        echo "<span class='noResults'>No artists found matching " . $term . "</span>";
+    }
+
+    while($row = mysqli_fetch_array($artistsQuery)) {
+        $artistFound = new Artist($con, $row['id']);
+
+        echo "<div class='searchResultRow>
+                <div class='artistName'>
+                    <span role='link' tabindex='0' onclick='openPage(\"artist.php?id=" . $artistFound->getId() ."\")'>
+                    "
+                    . $artistFound->getName();
+                    "
+                    </span>
+                </div>
+            </div>";
+    }
+    ?>
 </div>
