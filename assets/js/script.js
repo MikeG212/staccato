@@ -7,8 +7,13 @@ var currentIndex = 0;
 var repeat = false;
 var shuffle = false;
 var userLoggedIn;
+var timer;
 
 function openPage(url) {
+    if (timer != null) {
+        clearTimeout(timer);
+    }
+
     if (url.indexOf("?") == -1) {
         url += "?";
     }
@@ -89,4 +94,18 @@ function Audio() {
     this.setTime = function(seconds) {
         this.audio.currentTime = seconds;
     };
+}
+
+function createPlaylist() {
+    let popup = prompt("Please enter the name of your playlist");
+    if(popup != null) {
+        $.post("includes/handlers/ajax/createPlaylist.php", { name: popup, username: userLoggedIn })
+        .done(function(error) {
+            if (error != "") {
+                alert(error);
+                return;
+            }
+            openPage("yourMusic.php");
+        });
+    }
 }
