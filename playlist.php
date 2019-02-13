@@ -13,13 +13,15 @@ $owner = new User($con, $playlist->getOwner);
 
 <div class="entityInfo">
     <div class="leftSection">
-        <img src="assets/images/icons/playlist.png">
+        <div class="playlistImage">
+            <img src="assets/images/icons/playlist.png">
+        </div>
     </div>
     <div class="rightSection">
         <h2><?php echo $playlist->getName(); ?></h2>
         <p>By <?php echo $playlist-getOwner(); ?></p>
         <p><?php echo $playlist->getNumberOfSongs(); ?> songs</p>
-        <button class="button">DELETE PLAYLIST</button>
+        <button class="button" onclick="deletePlaylist('<?php echo $playlistId; ?>')">DELETE PLAYLIST</button>
 
     </div>
 
@@ -35,19 +37,19 @@ $owner = new User($con, $playlist->getOwner);
 		$i = 1;
 		foreach($songIdArray as $songId) {
 
-			$albumSong = new Song($con, $songId);
-			$albumArtist = $albumSong->getArtist();
+			$playlistSong = new Song($con, $songId);
+			$songArtist = $playlistSong->getArtist();
 
 			echo "<li class='tracklistRow'>
 					<div class='trackCount'>
-						<img class='play' src='assets/images/icons/play-white.png' onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'>
+						<img class='play' src='assets/images/icons/play-white.png' onclick='setTrack(\"" . $playlistSong->getId() . "\", tempPlaylist, true)'>
 						<span class='trackNumber'>$i</span>
 					</div>
 
 
 					<div class='trackInfo'>
-						<span class='trackName'>" . $albumSong->getTitle() . "</span>
-						<span class='artistName'>" . $albumArtist->getName() . "</span>
+						<span class='trackName'>" . $playlistSong->getTitle() . "</span>
+						<span class='artistName'>" . $songArtist->getName() . "</span>
 					</div>
 
 					<div class='trackOptions'>
@@ -55,7 +57,7 @@ $owner = new User($con, $playlist->getOwner);
 					</div>
 
 					<div class='trackDuration'>
-						<span class='duration'>" . $albumSong->getDuration() . "</span>
+						<span class='duration'>" . $playlistSong->getDuration() . "</span>
 					</div>
 
 
