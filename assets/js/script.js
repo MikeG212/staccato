@@ -17,7 +17,7 @@ function openPage(url) {
     if (url.indexOf("?") == -1) {
         url += "?";
     }
-    var encodedURL = encodeURI(`${url}&userLoggedIn=${userLoggedIn}`);
+    var encodedURL = encodeURI(`${url}&username=${userLoggedIn}`);
     $("#mainContent").load(encodedURL);
     $("#body").scrollTop(0);
     history.pushState(null, null, url);
