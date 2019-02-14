@@ -22,8 +22,19 @@ $(window).scroll(function(){
 });
 
 $(document).on("change", "select.playlist", function() {
-    let playlistId = $(this).val();
-    let songId = $(this).prev(".songId").val();
+    let select = $(this);
+    let playlistId = select.val();
+    let songId = select.prev(".songId").val();
+
+    $.post("includes/handlers/ajax/addToPlaylist.php", { playlistId: playlistId, songId: songId})
+    .done(function(error) {
+        if (error != "") {
+            alert(error);
+            return;
+        }
+        hideOptionsMenu();
+        select.val("");
+    });
 
 });
 
@@ -156,6 +167,7 @@ function showOptionsMenu(button) {
     let songId = $(button).prevAll(".songId").val();
     let menu = $(".optionsMenu");
     let menuWidth= menu.width();
+    menu.find("songId").val(songId);
 
     let scrollTop = $(window).scrollTop();
     let elementOffset = $(button).offset().top;
