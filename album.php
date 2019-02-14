@@ -75,7 +75,7 @@ $artist = $album->getArtist();
 
 <nav class="optionsMenu">
 	<input type="hidden" class="songId">
-	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn); ?>
+	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
 	<div class="item">Add to Playlist</div>
 	<div class="item">Add to Playlist</div>
 	<div class="item">Add to Playlist</div>

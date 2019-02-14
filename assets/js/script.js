@@ -21,6 +21,12 @@ $(window).scroll(function(){
     hideOptionsMenu();
 });
 
+$(document).on("change", "select.playlist", function() {
+    let playlistId = $(this).val();
+    let songId = $(this).prev(".songId").val();
+
+});
+
 function openPage(url) {
     if (timer != null) {
         clearTimeout(timer);
@@ -147,6 +153,7 @@ function hideOptionsMenu() {
 }
 
 function showOptionsMenu(button) {
+    let songId = $(button).prevAll(".songId").val();
     let menu = $(".optionsMenu");
     let menuWidth= menu.width();
 
