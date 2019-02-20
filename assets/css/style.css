@@ -483,3 +483,7 @@ body {
     -moz-appearance: none;
     border: none;
 }
+
+.userInfo h1{
+    text-align: center;
+}
