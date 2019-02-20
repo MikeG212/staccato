@@ -9,7 +9,7 @@ var shuffle = false;
 var userLoggedIn;
 var timer;
 
-$(dcoument).click(function(click){
+$(document).click(function(click){
     let target = $(click.target);
 
     if (!target.hasClass("item") && !target.hasClass("optionsButton")) {
@@ -43,12 +43,12 @@ function openPage(url) {
         clearTimeout(timer);
     }
 
-    if (url.indexOf("?") == -1) {
+    if (url.indexOf("?") === -1) {
         url += "?";
     }
-    var encodedURL = encodeURI(`${url}&username=${userLoggedIn}`);
+    var encodedURL = encodeURI(`${url}&userLoggedIn=${userLoggedIn}`);
     $("#mainContent").load(encodedURL);
-    $("#body").scrollTop(0);
+    $("body").scrollTop(0);
     history.pushState(null, null, url);
 }
 

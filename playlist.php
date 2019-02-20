@@ -1,28 +1,25 @@
 <?php include("includes/includedFiles.php");
 
 if(isset($_GET['id'])) {
-    $playlistId = $_GET['id'];
+    $albumId = $_GET['id'];
 }
 else {
     header("Location: index.php");
 }
 
-$playlist = new Album($con, $playlistId);
-$owner = new User($con, $playlist->getOwner);
+$playlist = new Playlist($con, $playlistId);
+$owner = new User($con, $plyalist->getOwner());
 ?>
 
 <div class="entityInfo">
     <div class="leftSection">
-        <div class="playlistImage">
-            <img src="assets/images/icons/playlist.png">
-        </div>
+        <img src="assets/images/icons/playlist.png">
     </div>
     <div class="rightSection">
-        <h2><?php echo $playlist->getName(); ?></h2>
-        <p>By <?php echo $playlist-getOwner(); ?></p>
+        <h2><?php echo $plalist->getName(); ?></h2>
+        <p>By <?php echo $playlist->getOwner(); ?></p>
         <p><?php echo $playlist->getNumberOfSongs(); ?> songs</p>
-        <button class="button" onclick="deletePlaylist('<?php echo $playlistId; ?>')">DELETE PLAYLIST</button>
-
+		<button class="button">DELETE PLAYLIST</button>
     </div>
 
 
@@ -32,8 +29,7 @@ $owner = new User($con, $playlist->getOwner);
 	<ul class="tracklist">
 		
 		<?php
-		$songIdArray = $playlist->getSongIds();
-
+		$songIdArray = $playlist->getSongIds(); 
 		$i = 1;
 		foreach($songIdArray as $songId) {
 
@@ -51,9 +47,9 @@ $owner = new User($con, $playlist->getOwner);
 						<span class='trackName'>" . $playlistSong->getTitle() . "</span>
 						<span class='artistName'>" . $songArtist->getName() . "</span>
 					</div>
-                    
-                    <div class='trackOptions'>
-						<input type='hidden' class='songId' value='" . $albumSong->getId() ."'>
+
+					<div class='trackOptions'>
+						<input type='hidden' class='songId' value='" . $playlistSong->getId() ."'>
 						<img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>
 					</div>
 
