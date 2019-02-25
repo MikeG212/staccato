@@ -66,7 +66,6 @@
                     <button type="submit" name="loginButton">LOG IN</button>
                     <div class="hasAccountText">
                         <span id=hideLogin>Don't have an account yet?</span>
-                        <button>SIGN UP FOR STACCATO</button>
                     </div>
                 </form>
 
