@@ -130,7 +130,7 @@
             <div id="loginText">
                 <h1>Music for everyone.</h1>
                 <h4>Millions of songs. No credit card needed.</h4>
-                <button>DEMO LOGIN</button>
+                <button name="demoLogin">DEMO LOGIN</button>
             </div>
 
         </div>
