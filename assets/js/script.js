@@ -45,15 +45,17 @@ function logout() {
 }
 
 function openPage(url) {
+
     if (timer != null) {
         clearTimeout(timer);
     }
 
-    if (url.indexOf("?") === -1) {
-        url += "?";
+    if (url.indexOf("?") == -1) {
+        url = url + "?";
     }
-    var encodedURL = encodeURI(`${url}&userLoggedIn=${userLoggedIn}`);
-    $("#mainContent").load(encodedURL);
+
+    var encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
+    $("#mainContent").load(encodedUrl);
     $("body").scrollTop(0);
     history.pushState(null, null, url);
 }
@@ -197,25 +199,32 @@ function showOptionsMenu(button) {
 }
 
 function updateEmail(emailClass) {
-    let emailValue = $("." + emailClass).val();
+    var emailValue = $("." + emailClass).val();
 
-    $.post("includes/handlers/ajax/updateEmail.php", { email: emailValue, username: userLoggedIn})
-    .done(function(response) {
-        $("." = emailClass).nextAll(".message").text(response);
-    })
+    $.post("includes/handlers/ajax/updateEmail.php", { email: emailValue, username: userLoggedIn })
+        .done(function (response) {
+            $("." + emailClass).nextAll(".message").text(response);
+        })
+
+
 }
 
 function updatePassword(oldPasswordClass, newPasswordClass1, newPasswordClass2) {
-    let oldPassword = $("." + oldPasswordClass).val();
-    let newPassword1 = $("." + newPasswordClass1).val();
-    let newPassword2 = $("." + newPasswordClass2).val();
+    var oldPassword = $("." + oldPasswordClass).val();
+    var newPassword1 = $("." + newPasswordClass1).val();
+    var newPassword2 = $("." + newPasswordClass2).val();
 
     $.post("includes/handlers/ajax/updatePassword.php",
-    { oldPassword: oldPassword,
-        newPassword1: newPassword1,
-        newPassword2: newPassword2,
-        username: userLoggedIn })
-    .done(function (response) {
-        $("." = oldPasswordClass).nextAll(".message").text(response);
-    })
-} 
+        {
+            oldPassword: oldPassword,
+            newPassword1: newPassword1,
+            newPassword2: newPassword2,
+            username: userLoggedIn
+        })
+
+        .done(function (response) {
+            $("." + oldPasswordClass).nextAll(".message").text(response);
+        })
+
+
+}

@@ -179,6 +179,7 @@ function setTrack(trackId, newPlaylist, play) {
 }
 
 function playSong() {
+    console.log(audioElement);
     if (audioElement.audio.currentTime == 0) {
         $.post("includes/handlers/ajax/updatePlays.php", { songId: audioElement.currentlyPlaying.id });
     }
@@ -214,7 +215,7 @@ function pauseSong() {
         </div>
 
         <div id="nowPlayingCenter">
-            <div class="content playerControl">
+            <div class="content playerControls">
                 <div class="buttons">
 
                     <button class="controlButton shuffle" title="Shuffle button" onclick="toggleShuffle()">

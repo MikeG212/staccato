@@ -7,6 +7,7 @@
     
     include("includes/handlers/register-handler.php");
     include("includes/handlers/login-handler.php");
+
  
     function getInputValue($name) {
         if(isset($_POST[$name])) {
@@ -129,7 +130,7 @@
             <div id="loginText">
                 <h1>Music for everyone.</h1>
                 <h4>Millions of songs. No credit card needed.</h4>
-                <button name="demoLogin">DEMO LOGIN</button>
+                <button>DEMO LOGIN</button>
             </div>
 
         </div>

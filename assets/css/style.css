@@ -45,6 +45,7 @@ body {
 #nowPlayingCenter {
     width: 40%;
     max-width: 700px;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -76,10 +77,6 @@ body {
 .controlButton.pause img {
     width: 32px;
     height: 32px;
-}
-
-.controlButton:hover {
-	cursor: pointer;
 }
 
 .progressTime{
@@ -169,6 +166,7 @@ body {
     padding: 25px;
     display: flex;
     flex-direction: column;
+    -ms-flex-direction: column;
 }
 
 .navBar img {
@@ -226,6 +224,7 @@ body {
 
 .pageHeadingBig {
     padding: 20px;
+    text-align: center;
 }
 
 .gridViewItem {
@@ -251,7 +250,7 @@ body {
 }
 
 .gridViewInfo a {
-    text-decoration: none; 
+    text-decoration: none;
 }
 
 .entityInfo {
@@ -263,14 +262,14 @@ body {
 .entityInfo .leftSection {
     width: 30%;
     float: left;
-    max-width: 250px
+    max-width: 250px;
 }
 
-.entityInfo .leftSection img{
+.entityInfo .leftSection img {
     width: 100%;
 }
 
-.entityInfo  .rightSection {
+.entityInfo .rightSection {
     width: 70%;
     float: left;
     padding: 5px 10px 5px 40px;
@@ -282,7 +281,7 @@ body {
 }
 
 .entityInfo .rightSection p {
-    color:#939393;
+    color: #939393;
     font-weight: 200;
 }
 
@@ -322,11 +321,11 @@ body {
 }
 
 .tracklistRow .trackCount span {
-    visibility: visible;  
+    visibility: visible;
 }
 
 .tracklistRow:hover .trackCount span {
-    visibility: hidden;  
+    visibility: hidden;
 }
 
 .tracklistRow .trackInfo {
@@ -408,7 +407,7 @@ body {
 
 .searchContainer h4 {
     margin: 0;
-    font-weight: 300px;
+    font-weight: 300;
 }
 
 .searchContainer .searchInput {
@@ -468,7 +467,9 @@ body {
     box-sizing: border-box;
     font-weight: 400;
     color: rgba(147, 147, 147, 0.8);
-    border: none;
+    cursor: pointer;
+    height: 40px;
+    font-size: 14px;
     background-color: #282828;
 }
 
@@ -479,9 +480,9 @@ body {
 }
 
 .optionsMenu select {
+    border: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    border: none;
 }
 
 .userInfo h1 {
