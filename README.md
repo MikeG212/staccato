@@ -2,7 +2,7 @@
 
 Staccato is a music streaming app that allows users to listen to songs and build their own playlists.
 
-[Live Link](https://mikeg212.github.io/sleepytetris/)
+[Live Link](https://staccato-player.herokuapp.com)
 
 # Technologies
 On the frontend, I used JavaScript and jQuery to interface with the user.  I used PHP for the backend, with objects stored in a mySQL database.
